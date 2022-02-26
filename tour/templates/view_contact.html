@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> VIEW QUERIES</h1>
+
+</center>
+
+<div class="container mt-3">
+
+    <table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Full Name</th>
+
+    <th>Email Id</th>
+    <th>Subject</th>
+    <th>Massage</th>
+  </tr>
+  </thead>
+   <tbody>
+
+    {% for i in data %}
+  <tr>
+
+    <td>{{i.id}}</td>
+    <td>{{i.first_Name}} {{i.last_Name}}</td>
+
+      <td>{{i.email}}</td>
+      <td>{{i.subject}}</td>
+      <td>{{i.message}}</td>
+  </tr>
+
+    {% endfor %}
+    </tbody>
+
+</table>
+</div>
+{% for i in messages %}
+<script>
+    alert("{{i}}")
+</script>
+{% endfor %}
+{% endblock %}

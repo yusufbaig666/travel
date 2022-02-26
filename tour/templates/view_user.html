@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> VIEW All REG. USERS </h1>
+
+</center>
+
+<div class="container mt-3">
+    <table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>S.No.</th>
+    <th>Full Name</th>
+
+    <th>Email Id</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+   <tbody>
+
+    {% for i in user %}
+  <tr>
+
+    <td>{{forloop.counter}}</td>
+    <td>{{i.first_name}} {{i.last_name}}</td>
+
+      <td>{{i.email}}</td>
+    <td><a href="{% url 'delete_user' i.id %}" onclick="return confirm('Are you sure?')"><button class="btn btn-danger">delete</button></a></td>
+  </tr>
+
+    {% endfor %}
+    </tbody>
+
+</table>
+</div>
+{% for i in messages %}
+<script>
+    alert("{{i}}")
+</script>
+{% endfor %}
+{% endblock %}

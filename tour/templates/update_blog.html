@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+<style>
+ input[type=text],[type=file], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+div .django-ckeditor-widget{
+  width: 100%;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+</style>
+
+<div class="site-section bg-light">
+    <div class="container">
+        <h3 style="font-weight:bold;">Edit Blog</h3>
+        <div class="row">
+
+            <div class="col-md-12 mb-12">
+
+
+                <form class="p-5 bg-white" method="post" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    {{form.media}}
+                   {{form.as_p}}
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <input type="submit" value="Update Blog" class="btn btn-primary py-2 px-4 text-white">
+                        </div>
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% for i in messages %}
+<script>
+    alert("{{i}}")
+</script>
+{% endfor %}
+
+{% endblock %}

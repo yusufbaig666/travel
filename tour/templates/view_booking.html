@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> VIEW BOOKING </h1>
+
+</center>
+<div class="container">
+    <table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+  <th>S.No.</th>
+    <th>Booking ID</th>
+    <th>Full Name</th>
+
+    <th>Email Id</th>
+    <th>Destination</th>
+    <th>Gender</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+   <tbody>
+
+    {% for i in c %}
+  <tr>
+<td>{{forloop.counter}}</td>
+    <td>{{i.id}}</td>
+    <td>{{i.Fname}} {{i.Lname}}</td>
+
+      <td>{{i.Email}}</td>
+      <td>{{i.destination}}</td>
+      <td>{{i.gender}}</td>
+    <td><a href="{% url 'admin_delete_booking' i.id %}" onclick="return confirm('Are you sure?')"><button class="btn btn-danger">delete</button></a></td>
+  </tr>
+
+    {% endfor %}
+    </tbody>
+
+</table>
+</div>
+{% for i in messages %}
+<script>
+    alert("{{i}}")
+</script>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;margin-top:5px;font-family : 'Monotype Corsiva' ;text-align:align:center"> MY BOOKING </h1>
+
+</center>
+<div class="container mt-3">
+
+    <table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Full_Name</th>
+    <th>Email_Id</th>
+      <th>Gender</th>
+    <th>Mobile_Number</th>
+    <th>Destination</th>
+    <th>Address</th>
+    <th>Total_Price</th>
+    <th>Booking_Date</th>
+    <th>Used_Facility</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+   <tbody>
+
+    {% for i in data %}
+  <tr>
+
+    <td>{{i.id}}</td>
+    <td>{{i.Fname}} {{i.Lname}}</td>
+      <td>{{i.Email}}</td>
+      <td>{{i.gender}}</td>
+       <td>{{i.number}}</td>
+       <td>{{i.destination}}</td>
+       <td>{{i.address}}</td>
+       <td>{{i.price}}</td>
+       <td>{{i.date}}</td>
+       <td>{{i.used_facility}}</td>
+
+    <td><a href="{% url 'delete_booking' i.id %}" onclick="return confirm('Are you sure?')"><button class="btn btn-danger">delete</button></a></td>
+  </tr>
+
+    {% endfor %}
+    </tbody>
+
+</table>
+</div>
+
+{% for i in messages %}
+<script>
+    alert("{{i}}")
+</script>
+{% endfor %}
+{% endblock %}

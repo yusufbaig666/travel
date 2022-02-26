@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+
+.zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5);
+}
+</style>
+
+
+<h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> VIEW BLOG DETAIL </h1>
+<div class="site-section">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+            <a href="#" class="unit-1 text-center">
+              <img src="{{ data.image.url }}" alt="Image" class="img-fluid" style="height:450px">
+              <div class="unit-1-text">
+                <strong class="text-primary mb-2 d-block"></strong>
+
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-8" >
+            <div class="p-4 mb-3 bg-white">
+
+              <div class="unit-1-heading">
+                <table class="table table-bordered bordered-success">
+                  <thead>
+                    <tr>
+                      <th scope="col">Topic</th>
+                      <td>{{ data.topic }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="col">Post Date</th>
+                      <td>{{data.post_date}}</td>
+                    </tr>
+                    <tr>
+                      </thead>
+                </table>
+
+
+                      {{ data.blog|safe }}
+
+
+
+
+
+
+
+              </h3>
+              <h3 class="h5 text-black mb-3"></h3>
+                          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+{% for i in messages %}
+<script>
+    alert("{{i}}")
+</script>
+{% endfor %}
+{% endblock %}

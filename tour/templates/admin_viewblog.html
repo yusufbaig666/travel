@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> MANAGE  BLOG POST</h1>
+
+</center>
+<div class="container mt-3">
+
+    <table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>image</th>
+    <th>Topic</th>
+    <th>Delete</th>
+    <th>Edit</th>
+  </tr>
+  </thead>
+   <tbody>
+
+    {% for i in data %}
+  <tr>
+
+    <td>{{i.id}}</td>
+    <td><img src="{{i.image.url}}" style="width:100px;height:100px"></td>
+
+      <td>{{i.topic}}</td>
+    <td><a href="{% url 'delete_blog' i.id %}" onclick="return confirm('Are you sure?')"><button class="btn btn-danger">delete</button></a></td>
+    <td><a href="{% url 'update_blog' i.id %}" ><button class="btn btn-danger">edit</button></a></td>
+  </tr>
+
+    {% endfor %}
+    </tbody>
+
+</table>
+</div>
+{% for i in messages %}
+<script>
+    alert("{{i}}")
+</script>
+{% endfor %}
+{% endblock %}

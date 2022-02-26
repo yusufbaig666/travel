@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<style>
+#more {display: none;}
+</style>
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> VIEW BLOG </h1>
+
+</center>
+<div class="card">
+    <div class="site-section">
+      <div class="container-fluid">
+        
+        <div class="row mb-3 align-items-stretch" style="">
+           {% for i in data %}
+          <div class="col-md-3 col-lg-3 mb-4 mb-lg-3">
+            <div class="h-entry" style="border:1px solid lightgrey;">
+          <a href="{% url 'view_blog_detail' i.id %}"><img src="{{i.image.url}}" alt="Image" class="img-fluid" style="width:350px;height:400px">
+              <h2 class="font-size-regular">{{i.topic}}</h2>
+
+              <div class="meta mb-4" style="color:black"> <span class="mx-2">&bullet;</span> {{i.post_date}} <span class="mx-2">&bullet;</span> <a href="{% url 'view_blog_detail' i.id %}">News</a></div></a>
+                <a class="btn btn-primary" href="{% url 'view_blog_detail' i.id %}">Read more</a>
+            </div>
+          </div>
+
+         {% endfor %}
+
+        </div>
+          <span id="dots">...</span><span id="more"></span>
+
+      </div>
+    </div>
+</div>
+
+{% for i in messages %}
+<script>
+    alert("{{i}}")
+</script>
+{% endfor %}
+
+<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less";
+    moreText.style.display = "inline";
+  }
+}
+</script>
+    {% endblock %}
+

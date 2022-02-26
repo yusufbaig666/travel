@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> VIEW PROFILE </h1>
+
+</center>
+
+<div class="container mt-3">
+      <table class="table table-bordered bordered-success">
+                  <thead>
+                  <tr>
+                        <th scope="col">Image</th>
+                      <td scope="col">{% if data1.image %}
+                          <img src="{{ data1.image.url }}" style="width:400px;height:200px" class="zoom">
+                          {% endif %}</td>
+                    </tr>
+                    <tr>
+                      <th scope="col">Full Name</th>
+                      <td>{{ data.first_name }} {{ data.last_name }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="col">Email</th>
+                      <td>{{ data.email }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="col">Mobile Number</th>
+                      <td>{{data1.mobile}}</td>
+                    </tr>
+                  <tr>
+                      <th scope="col">Address</th>
+                      <td>{{ data1.address }}</td>
+                    </tr>
+
+
+                   <tr>
+                       <th colspan="2"> <a href="{% url 'edit_profile' %}"><button class="btn btn-primary" > Edit </button></a></th>
+
+                    </tr>
+                  </thead>
+                </table>
+</div>
+{% for i in messages %}
+<script>
+    alert("{{i}}")
+</script>
+{% endfor %}
+{% endblock %}
