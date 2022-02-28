@@ -25,7 +25,7 @@ SECRET_KEY = 'g9^60bvp$*i#7sc%p1^)+80!h)kk8qkm(@epi9$_*&mv+n4ii!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['travel11.herokuapp.com']
+ALLOWED_HOSTS = ['tsp11.herokuapp.com']
 
 
 # Application definition
